@@ -1,13 +1,11 @@
 const router = require('express').Router();
 const { Category, Product } = require('../../models');
-
+const sequelize = require('../../config/connection')
 // The `/api/categories` endpoint
 
 router.get('/', (req, res) => {
 Category.findAll({ 
-  attributes: ['id', 'category_name',
-  [sequelize.literal('(SELECT COUNT(*) FROM category WHERE category_id = category.category_id'), 'categories']
-]
+  attributes: ['id', 'category_name']
 })
 .then((dbCategoryData) => res.json(dbCategoryData))
 .catch((err) => {
