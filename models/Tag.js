@@ -14,7 +14,7 @@ Tag.init(
       },
       tag_name: {
         dataType: DataTypes.STRING
-      }
+      },
   },
   {
     sequelize,
@@ -22,7 +22,7 @@ Tag.init(
     freezeTableName: true,
     underscored: true,
     modelName: 'tag',
-  }
+  },
 );
 
 module.exports = Tag;
