@@ -5,7 +5,9 @@ const { Category, Product } = require('../../models');
 
 router.get('/', (req, res) => {
 Category.findAll({ 
-
+  attributes: ['id', 'category_name',
+  [sequelize.literal('(SELECT COUNT(*) FROM category WHERE category_id = category.category_id'), 'categories']
+]
 })
 .then((dbCategoryData) => res.json(dbCategoryData))
 .catch((err) => {
