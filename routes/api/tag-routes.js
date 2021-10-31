@@ -35,7 +35,6 @@ router.get('/:id', (req, res) => {
      ]
   
   }).then((dbTagData) => {
-    console.log(dbTagData);
     res.json(dbTagData)
   })
   .catch((err) => res.status(500).json(err));
